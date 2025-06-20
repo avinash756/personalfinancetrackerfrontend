@@ -1,0 +1,15 @@
+.small-screen{
+    display: none;
+}
+
+@media (max-width:768px){
+    PieChart{
+        width:300px;
+    }
+    .small-screen{
+        display: block;
+    }
+    .big-screen{
+        display: none;
+    }
+}
