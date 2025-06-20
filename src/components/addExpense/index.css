@@ -1,0 +1,58 @@
+
+
+
+.add-expense-bg{
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+.Show-scanner-button{
+    background-color: burlywood;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.Close-scanner-button{
+    background-color: brown;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    
+}
+
+
+form input, form textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  
+}
+.greeting-user{
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+@media (max-width:768px){
+    .add-expense-bg{
+        padding:12px;
+    }
+    .greeting-user{
+        font-size: 1.5rem;
+    }
+}

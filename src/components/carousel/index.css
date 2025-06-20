@@ -1,0 +1,20 @@
+
+.carousel-item img{
+    height:300px;
+    object-fit:cover;
+    width:100%;
+    
+    
+}
+.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    bottom:10px;
+    padding:5px;
+}
+
+@media (max-width:768px){
+    .carousel-item img{
+        height:300px;
+    }
+}

@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body {
+  height: 100%;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.layout{
+  display: flex;
+  flex-direction: column;
+  
   min-height: 100vh;
+}
+.main{
+  flex:1;
+ 
+}
+
+
+
+/* App.css */
+.custom-signin {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.custom-signin:hover{
+  background-color: #218838;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+.row-layout{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0B1C39;
+  color:#FFFFFF;
+  height:88px;
+
+  padding: 0 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+.column-layout{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.heading-app{
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+@media (max-width: 768px) {
+  .heading-app {
+    font-size: 1.3rem;
+    padding-left: 0;
   }
-  to {
-    transform: rotate(360deg);
+.row-layout {
+    
+   
+    gap: 10px;
+    padding: 12px 12px;
   }
+
+  .custom-signin {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
 }

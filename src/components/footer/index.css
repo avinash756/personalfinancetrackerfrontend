@@ -1,0 +1,28 @@
+
+
+
+
+
+.footer-section{
+    background-color:#1E1E1E;
+    color:lightgray;
+    height:88px;
+    text-align: center;
+    padding:1rem;
+
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
