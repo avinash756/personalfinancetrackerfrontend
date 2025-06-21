@@ -75,7 +75,7 @@ function ShowingVisually(){
                     Authorization:`Bearer ${token}`
                 }
             })
-            console.log("response:",response.data)
+           
            
             setTransactions(response.data.transactions);
             setLoading(false);

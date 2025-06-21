@@ -32,7 +32,7 @@ function ShowingTransactions(){
                     Authorization:`Bearer ${token}`
                 }
             })
-            console.log("response:",response.data)
+           
             setTransactions(response.data.transactions);
             setLoading(false);
 
@@ -53,12 +53,12 @@ function ShowingTransactions(){
             const api=`${process.env.REACT_APP_API_URL}/api/transactions/${id}`
             const token=await getToken();
             try{
-            const response=await axios.delete(api,{
+            await axios.delete(api,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 }
             })
-            console.log("response:",response.data)
+            
             const filteredRemovedTransactions=transactions.filter((each)=>each._id!==id);
             setTransactions(filteredRemovedTransactions);
           

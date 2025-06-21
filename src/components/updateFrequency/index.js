@@ -56,7 +56,7 @@ function UpdateFrequency(){
   },[user?.id])
 
 
-    console.log(frequency);
+  
 
     const submitFrequency=async(e)=>{
          e.preventDefault();
