@@ -9,7 +9,9 @@ import { MdDeleteForever } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 import { IoMdArrowBack } from "react-icons/io";
 
+import Lottie from "lottie-react";
 
+import financeAddAnimation from "../animations/financeAddAnimation.json";
 
 import "./index.css";
 
@@ -76,11 +78,24 @@ function ShowingTransactions(){
             <Link to="/" className="home-button">Home&nbsp;<IoMdArrowBack /></Link>
            
            <br/>
-           <br/>
-           <br/>
+         
            
             {
                 loading===true?<div className="spinner"><ClipLoader color="#36d7b7" loading={loading} size={50} /></div>:
+
+
+                 <div>
+        {transactions.length===0? 
+        <div className="lottie-animation">
+        <div style={{ width: 300, height: 300 }}>
+        <Lottie animationData={financeAddAnimation} loop={true} />
+         </div>
+           <p className="transactions-empty" style={{ fontSize: "16px", color: "#444" }}>
+       🚫 No transactions yet.
+        Start by adding your first expense!
+      </p>
+         </div>:
+
             
             <div>
            <h2 className="new-transaction-heading">New Transactions
@@ -101,6 +116,14 @@ function ShowingTransactions(){
                 </div>)
             }
             </div>
+
+
+        }
+          </div>
+
+
+
+
             }
 
 

@@ -110,11 +110,28 @@
 
 .visual-bg{
     padding:20px;
+   
+      
+   
 }
 
 .visual-summary-heading{
     text-align: center;
 }
+
+.lottie-animation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.empty-expeses-para{
+    text-align: center;
+}
+
+
 @media (max-width:768px){
     .transaction-table th,.transaction-table td{
         text-align: left;

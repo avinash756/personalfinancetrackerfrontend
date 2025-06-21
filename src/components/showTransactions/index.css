@@ -71,6 +71,9 @@
     background-color: #056cda;
 }
 
+.transactions-empty{
+    text-align: center;
+}
 @media (max-width:768px){
     .new-transactions{
         padding:12px;

@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 import ClipLoader from "react-spinners/ClipLoader";
 import { IoMdArrowBack } from "react-icons/io";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa"; 
 
 import "./index.css";
 
@@ -52,10 +53,11 @@ function AddExpense(){
      setFormData(prev => ({
       ...prev,
       amount,
-      note,
-      description: note,
+      type: "expense",
       category: categoryGuess,
+      description: note,
       date: new Date().toISOString().split("T")[0], // today’s date (YYYY-MM-DD)
+      note
     }));
 
 
@@ -79,6 +81,7 @@ function AddExpense(){
 
     const [formData,setFormData]=useState({
         amount:"",
+        type:"expense",
         category:"",
         description:"",
         date:"",
@@ -107,11 +110,17 @@ const details=async(e)=>{
         
         
         setLoading(false);
+        if(formData.type==="income"){
+          toast.success("Income Added!")
+        }
+        else if(formData.type==="expense"){
         toast.success("Expense Added!");
+        }
 
     
     setFormData({   
         amount:"",
+        type:"expense",
         category:"",
         description:"",
         date:"",
@@ -156,6 +165,34 @@ const details=async(e)=>{
 
             <form onSubmit={details}>
               <input onChange={handleChange} name="amount" value={formData.amount} type="number" placeholder="Enter the amount" required/>
+                            
+                            <p><strong>Choose Type:</strong></p>
+              <div className="type-toggle">
+                <label className={`radio-option ${formData.type === "expense" ? "selected-expense" : ""}`}>
+                  <input
+                    type="radio"
+                    name="type"
+                    value="expense"
+                    checked={formData.type === "expense"}
+                    onChange={handleChange}
+                  />
+                  <FaArrowDown className="icon" />
+                  Expense
+                </label>
+                <label className={`radio-option ${formData.type === "income" ? "selected-income" : ""}`}>
+                  <input
+                    type="radio"
+                    name="type"
+                    value="income"
+                    checked={formData.type === "income"}
+                    onChange={handleChange}
+                  />
+                  <FaArrowUp className="icon" />
+                  Income
+                </label>
+              </div>
+
+
               <input onChange={handleChange} name="category" value={formData.category} type="text" placeholder="Enter the category"/>
               <textarea onChange={handleChange} name="description" value={formData.description}  placeholder="Enter the description"/>
               <input onChange={handleChange} name="date" value={formData.date} type="date"/>

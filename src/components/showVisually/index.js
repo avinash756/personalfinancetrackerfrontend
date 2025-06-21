@@ -17,6 +17,10 @@ import BarChartComponent from "../barChart";
 import LineChartComponent from "../lineChart";
 import { IoMdArrowBack } from "react-icons/io";
 import ClipLoader from "react-spinners/ClipLoader";
+import Lottie from "lottie-react";
+
+import financeAnimation from "../animations/financeAnimation.json";
+
 
 import "./index.css";
 
@@ -72,6 +76,7 @@ function ShowingVisually(){
                 }
             })
             console.log("response:",response.data)
+           
             setTransactions(response.data.transactions);
             setLoading(false);
 
@@ -95,6 +100,17 @@ function ShowingVisually(){
         {
           loading===true?<div className="spinner"><ClipLoader color="#36d7b7" loading={loading} size={50} /></div>
         :
+          <div>
+        {transactions.length===0? 
+        <div className="lottie-animation">
+        <div style={{ width: 300, height: 300 }}>
+        <Lottie animationData={financeAnimation} loop={true} />
+         </div>
+           <p className="empty-expeses-para" style={{ fontSize: "16px", color: "#444" }}>
+        Add your expenses to see your spending visualized here!
+      </p>
+         </div>:
+
         <div>
           <div className="download-bg">
             <h4 className="visual-summary-heading">Visual Summary of Your Transactions</h4>
@@ -152,6 +168,13 @@ function ShowingVisually(){
          </table>
 
          </div>
+
+            }
+
+          </div>
+
+
+
         }
 
         </div>
