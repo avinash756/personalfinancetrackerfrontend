@@ -72,7 +72,9 @@ function App() {
 
     
       <SignedOut>
+        <br/>
         <SignInButton className="custom-signin"/>
+       
       </SignedOut>
    
 
