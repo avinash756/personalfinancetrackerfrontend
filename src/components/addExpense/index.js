@@ -12,6 +12,9 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { IoMdArrowBack } from "react-icons/io";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa"; 
 
+import moment from "moment-timezone";
+
+
 import "./index.css";
 
 function AddExpense(){
@@ -34,7 +37,7 @@ function AddExpense(){
   }
 
   const greeting=getGreetings();
-
+  
   const handleScanSuccess = (data) => {
     if (data.startsWith("upi://pay")) {
       setUpiLink(data);
@@ -56,7 +59,7 @@ function AddExpense(){
       type: "expense",
       category: categoryGuess,
       description: note,
-      date: new Date().toISOString().split("T")[0], // today’s date (YYYY-MM-DD)
+      date: moment().tz("Asia/Kolkata").toISOString(), // today’s date (YYYY-MM-DD)
       note
     }));
 
@@ -84,7 +87,6 @@ function AddExpense(){
         type:"expense",
         category:"",
         description:"",
-        date:"",
         note:""
 
     })
@@ -102,7 +104,14 @@ const details=async(e)=>{
     const api=`${process.env.REACT_APP_API_URL}/api/transactions`;
     const token=await getToken();
     try{
-        await axios.post(api,formData,{
+
+      const payload = {
+      ...formData,
+      date: moment().tz("Asia/Kolkata").toISOString(), // ensures accurate datetime
+          };
+
+
+        await axios.post(api,payload,{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -123,7 +132,6 @@ const details=async(e)=>{
         type:"expense",
         category:"",
         description:"",
-        date:"",
         note:""})
     }
     catch(error){
@@ -135,6 +143,9 @@ const details=async(e)=>{
    
 
 }
+
+
+
 
     return(
 
@@ -195,7 +206,6 @@ const details=async(e)=>{
 
               <input onChange={handleChange} name="category" value={formData.category} type="text" placeholder="Enter the category"/>
               <textarea onChange={handleChange} name="description" value={formData.description}  placeholder="Enter the description"/>
-              <input onChange={handleChange} name="date" value={formData.date} type="date"/>
               <input onChange={handleChange} name="note" value={formData.note} type="text" placeholder="Enter the note"/>
 
               <button type="submit">Submit</button>
